@@ -1,0 +1,113 @@
+<div class="card col-sm-6 mt-3 container" *ngIf="isEdit == true">
+  <div class="card-header">
+    <h3>User list</h3>
+  </div>
+  <div class="card-body">
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th>Actions</th>
+          <!-- <th>Delete</th> -->
+        </tr>
+      </thead>
+      <tbody *ngFor="let user of userList">
+        <tr>
+          <td>{{ user.userid }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.useremail }}</td>
+          <td>{{ user.contactno }}</td>
+          <td>
+            <!-- <button
+              class="btn btn-primary"
+              (click)="onEditUserhandler(user.id)"
+            >
+              Edit
+            </button> -->
+
+            <i
+              class="bi bi-pencil-square p-3"
+              (click)="onEditUserhandler(user.id)"
+            ></i>
+            <i class="bi bi-trash-fill" (click)="onDeleteUser(user.id)"></i>
+
+            <!-- </td>
+          <td> -->
+            <!-- <button class="btn btn-danger" (click)="onDeleteUser(user.id)">
+              Delete
+            </button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- <button (click)="btnhandle()">click</button> -->
+
+<!---edit details-->
+<div class="card col-sm-6 mt-3 container" *ngIf="isEdit == false">
+  <div class="card-header">
+    <h3>Edit User Details</h3>
+  </div>
+  <div class="card-body">
+    <form
+      #editedData="ngForm"
+      (ngSubmit)="onEditUserSubmitHandler(editedData)"
+      *ngFor="let userDetails of userDetails"
+    >
+      <div class="form-group">
+        <label for="userid">UserId:</label>
+        <input
+          type="number"
+          class="form-control"
+          name="userid"
+          placeholder="Enter User Id"
+          ngModel
+          [(ngModel)]="userDetails.userid"
+        />
+      </div>
+      <div class="form-group mt-3">
+        <label for="username">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          placeholder="Enter Name"
+          autocomplete="off"
+          ngModel
+          [(ngModel)]="userDetails.username"
+        />
+      </div>
+      <div class="form-group mt-3">
+        <label for="useremail">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Enter User Email"
+          autocomplete="off"
+          name="useremail"
+          ngModel
+          [(ngModel)]="userDetails.useremail"
+        />
+      </div>
+      <div class="form-group mt-3">
+        <label for="contactno">Contact No:</label>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Enter Contact No"
+          autocomplete="off"
+          name="contactno"
+          ngModel
+          [(ngModel)]="userDetails.contactno"
+        />
+      </div>
+      <div class="d-grid mt-3">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
