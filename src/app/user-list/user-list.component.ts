@@ -22,6 +22,7 @@ export class UserListComponent {
 
   userList;
   user;
+  p: any;
   isEdit = true;
   ngOnInit() {
     this.http.observer.subscribe((resp) => {

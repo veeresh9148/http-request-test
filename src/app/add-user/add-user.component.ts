@@ -16,16 +16,19 @@ export class AddUserComponent {
       Validators.pattern('[a-zA-Z ]*'),
     ]),
     useremail: new FormControl('', [Validators.required, Validators.email]),
-    contactno: new FormControl('', [Validators.required]),
+    contactno: new FormControl(null, [Validators.required]),
   });
   constructor(
     private userCreate: HttpServiceService,
     private toastr: ToastrService
   ) {}
   onAddUserhandler() {
-    //console.log(this.userData1.value);
-    this.userCreate.onUserCreate(this.userData1.value);
-    //alert('User has been Added');
-    this.toastr.success('User has been Added');
+    if (this.userData1.valid) {
+      this.userCreate.onUserCreate(this.userData1.value);
+
+      this.toastr.success('User has been Added');
+    } else {
+      this.toastr.error('Please enter Required Data');
+    }
   }
 }

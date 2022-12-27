@@ -10,13 +10,19 @@ import { HttpServiceService } from './services/http-service.service';
 export class AppComponent {
   title = 'http-request';
   constructor(private route: Router, private http: HttpServiceService) {}
+  addUserBtnStatus: boolean = true;
+  listUserBtnStatus: boolean = false;
   ngOnInit() {
     this.http.onUserList();
   }
   onAddUserHandler() {
+    this.addUserBtnStatus = true;
+    this.listUserBtnStatus = false;
     this.route.navigate(['AddUser']);
   }
   onUserListHandler() {
+    this.addUserBtnStatus = false;
+    this.listUserBtnStatus = true;
     this.route.navigate(['UserList']);
   }
 }

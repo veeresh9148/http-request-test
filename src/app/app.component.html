@@ -13,12 +13,20 @@
 <div class="container col-sm-6 mt-5">
   <div class="row">
     <div class="col-sm-9">
-      <button class="btn btn-primary" (click)="onAddUserHandler()">
+      <button
+        class="btn btn-primary"
+        (click)="onAddUserHandler()"
+        [disabled]="addUserBtnStatus"
+      >
         Add User
       </button>
     </div>
     <div class="col-sm-3">
-      <button class="btn btn-primary" (click)="onUserListHandler()">
+      <button
+        class="btn btn-primary"
+        (click)="onUserListHandler()"
+        [disabled]="listUserBtnStatus"
+      >
         List User
       </button>
     </div>
