@@ -1,5 +1,6 @@
 {
-  "name": "HttpAngularApp",
-  "integrations": {},
-  "type": "angular"
+  "appId": "0855f82f",
+  "appName": "HttpAgularApp",
+  "webDir": "www",
+  "bundledWebRuntime": false
 }
