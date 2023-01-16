@@ -19,7 +19,7 @@ export class UserListComponent {
   ) {
     // this.http.onUserList();
   }
-
+  searchText;
   userList;
   user;
   p: any;

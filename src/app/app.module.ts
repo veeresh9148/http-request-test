@@ -9,6 +9,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [AppComponent, UserListComponent, AddUserComponent],
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    Ng2SearchPipeModule,
     ToastrModule.forRoot(),
   ],
   providers: [],

@@ -16,7 +16,7 @@ export class AddUserComponent {
       Validators.pattern('[a-zA-Z ]*'),
     ]),
     useremail: new FormControl('', [Validators.required, Validators.email]),
-    contactno: new FormControl(null, [Validators.required]),
+    contactno: new FormControl('', [Validators.required]),
   });
   constructor(
     private userCreate: HttpServiceService,
